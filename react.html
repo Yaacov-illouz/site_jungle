@@ -1,0 +1,69 @@
+<html>
+    
+    <head></head>
+
+    <body>
+        
+        <div id="div1">Bonjour</div>
+
+        <!-- Importation du CDN (librairie react) -->
+        <!-- API qui permettra de gérer les composants. -->
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <!-- API qui est responsable de générer les composants dans le DOM (virtuel). -->
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <!-- Importation de babel (librairie pour utiliser la dernière syntaxe de js) -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <!-- Cet outil permet d'utiliser les dernières syntaxes de JS dans le navigateur (ES6+). -->
+        <script type="text/babel">
+
+            // Remplacer un élément de la page web
+            ReactDOM.render(
+                <div>Bonsoir</div>, 
+                document.getElementById('div1')
+            )
+            // Deuxième possibilité 
+
+            function MyComponent() {
+                return <div>Bonsoir</div>;
+            }
+            
+            ReactDOM.render(
+                <MonComposant/>, 
+                document.getElementById('div1')
+            )
+            
+            // Composants de fonctions (des fonctions qui vont returnées des composants)
+            function MonComposant() {
+                return(<div>Bonjour</div>)
+            }
+            
+            ReactDOM.render(
+                <MonComposant/>, 
+                document.getElementById('div1')
+            )
+
+            // Ajouter un élément React créé par React (ce dernier renvoie un objet dans la console avec tout un ensemble de propriétés
+            // spécifiques)
+
+            const Header = React.createElement('h1', {}, 'La maison jungle')
+
+            console.log(Header)
+
+            ReactDOM.render(Header, document.getElementById("root"))
+
+            // JSX 
+
+            function Header() {
+                return(
+                    <div>
+                        <h1>La maison de la jungle.</h1>
+                    </div>
+                )
+            }
+
+        </script>
+        <!-- Vérification que la blibliothéque à bien été importée -->
+        <script>console.log(React);</script>
+    </body>
+
+</html>
